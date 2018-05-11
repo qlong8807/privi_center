@@ -1,0 +1,29 @@
+主页面为main.html,点击在div添加html按钮id为btn,
+div的id为viewDiv，要插入的本地html为new.html。
+
+方法一：基于Jquery的DIV嵌套html（测试可用）
+
+<script src="js/jquery.js"></script>
+
+$(document).ready(function(){
+  $("#btn").click(function(){
+    $('#viewDiv').load('new.html');
+  })
+})
+
+点击按钮即可在div中添加new.html。
+
+方法二：纯js方法。（亲测可用，推荐此方法）
+
+ function load_home() {
+ document.getElementById("viewDiv").innerHTML = '<object type="text/html" data="new.html" width="100%" height="100%"></object>';
+   }
+ <button type="button" id="btn" onClick="javascript:load_home();" >确认</button>
+
+方法三：iframe 方法（未测试）
+
+<div class="main-container" id="main" style="width:99%">
+ <iframe src="new.html" width="100%" height="100%" frameborder="0">
+ 您的浏览器不支持iframe，请升级
+ </iframe>
+</div>
